@@ -34,10 +34,142 @@
 .lang-btn.active { color: var(--burdo); background: rgba(102,2,60,0.07); }
 .lang-btn:hover { color: var(--black); }
 .lang-sep { color: var(--xlight); font-size: 11px; }
+
+/* LANGUAGE MODAL */
+.lang-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17,17,16,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeInOverlay .4s ease .1s forwards;
+}
+@keyframes fadeInOverlay {
+  to { opacity: 1; }
+}
+.lang-modal {
+  background: var(--white, #F8F5F0);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 24px 60px rgba(17,17,16,0.18);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUpModal .4s ease .2s forwards;
+}
+@keyframes slideUpModal {
+  to { transform: none; opacity: 1; }
+}
+.lang-modal-logo {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--black, #111110);
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.lang-modal-logo span { color: #66023C; }
+.lang-modal-question {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  color: var(--black, #111110);
+  margin-bottom: .5rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+.lang-modal-question em {
+  font-style: italic;
+  font-weight: 300;
+  color: #66023C;
+  text-transform: none;
+  display: block;
+}
+.lang-modal-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--light, #A09890);
+  margin-bottom: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.lang-modal-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.lang-modal-btn {
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(17,17,16,0.12);
+  background: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--black, #111110);
+  cursor: none;
+  transition: border-color .2s, background .2s, transform .15s;
+}
+.lang-modal-btn:hover {
+  border-color: #66023C;
+  background: rgba(102,2,60,0.04);
+  transform: translateY(-1px);
+}
+.lang-modal-btn.primary {
+  background: #66023C;
+  border-color: #66023C;
+  color: white;
+}
+.lang-modal-btn.primary:hover {
+  background: #7D1A50;
+  border-color: #7D1A50;
+}
+.lang-modal-flag {
+  display: block;
+  font-size: 22px;
+  margin-bottom: .4rem;
+}
+.lang-modal-btn-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  opacity: .7;
+  margin-top: 2px;
+}
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
+
+<!-- LANGUAGE MODAL -->
+<div class="lang-modal-overlay" id="lang-modal-overlay">
+  <div class="lang-modal">
+    <p class="lang-modal-logo">Victoria <span>Dallas</span></p>
+    <h2 class="lang-modal-question">
+      Select your display language
+      <em>Switch anytime</em>
+    </h2>
+    <div class="lang-modal-btns">
+      <button class="lang-modal-btn primary" onclick="chooseLang('es')">
+        <span class="lang-modal-flag">🇦🇷</span>
+        Español
+        <span class="lang-modal-btn-label">Continuar en español</span>
+      </button>
+      <button class="lang-modal-btn" onclick="chooseLang('en')">
+        <span class="lang-modal-flag">🇺🇸</span>
+        English
+        <span class="lang-modal-btn-label">Continue in English</span>
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -650,7 +782,6 @@
     document.querySelectorAll('[data-es][data-en]').forEach(el => {
       const val = el.getAttribute('data-' + lang);
       if (!val) return;
-      // Si tiene HTML interno (strong, em, etc.)
       if (val.includes('<')) {
         el.innerHTML = val;
       } else {
@@ -658,11 +789,28 @@
       }
     });
 
-    // Título del tab
     document.title = lang === 'es'
       ? 'Victoria Dallas — Analista de datos'
       : 'Victoria Dallas — Data Analyst';
   }
+
+  function chooseLang(lang) {
+    const overlay = document.getElementById('lang-modal-overlay');
+    overlay.style.transition = 'opacity .3s ease';
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.remove(), 300);
+    localStorage.setItem('vd-lang', lang);
+    setLang(lang);
+  }
+
+  // Mostrar modal solo si no eligió antes
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('vd-lang');
+    if (saved) {
+      document.getElementById('lang-modal-overlay').remove();
+      setLang(saved);
+    }
+  });
 </script>
 </body>
 </html>
