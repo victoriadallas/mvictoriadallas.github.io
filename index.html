@@ -803,11 +803,10 @@
     setLang(lang);
   }
 
-  // Mostrar modal solo si no eligió antes
+// Mostrar modal siempre al cargar
   window.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('vd-lang');
     if (saved) {
-      document.getElementById('lang-modal-overlay').remove();
       setLang(saved);
     }
   });
