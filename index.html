@@ -152,16 +152,19 @@
 <div class="lang-modal-overlay" id="lang-modal-overlay">
   <div class="lang-modal">
     <p class="lang-modal-logo">Victoria <span>Dallas</span></p>
+
     <h2 class="lang-modal-question">
-      Select your display language <BR>
+      Select your display language <br>
       <em>Switch anytime</em>
     </h2>
+
     <div class="lang-modal-btns">
       <button class="lang-modal-btn primary" onclick="chooseLang('es')">
         <span class="lang-modal-flag">🇦🇷</span>
         Español
         <span class="lang-modal-btn-label">Continuar en español</span>
       </button>
+
       <button class="lang-modal-btn" onclick="chooseLang('en')">
         <span class="lang-modal-flag">🇺🇸</span>
         English
@@ -170,6 +173,17 @@
     </div>
   </div>
 </div>
+
+<style>
+.lang-modal-question {
+  margin-bottom: 32px;
+}
+
+.lang-modal-question em {
+  display: block;
+  margin-top: 8px;
+}
+</style>
 
 <!-- NAV -->
 <nav>
