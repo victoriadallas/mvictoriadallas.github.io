@@ -3,12 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victoria Dallas — Analista de datos</title>
+<title>Victoria Dallas — Data Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
+<style>
+/* LANGUAGE TOGGLE */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 1.5rem;
+  border-left: 1px solid rgba(17,17,16,0.12);
+  padding-left: 1.5rem;
+}
+.lang-btn {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--light);
+  background: none;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: none;
+  transition: color .2s, background .2s;
+  font-family: 'Montserrat', sans-serif;
+}
+.lang-btn.active { color: var(--burdo); background: rgba(102,2,60,0.07); }
+.lang-btn:hover { color: var(--black); }
+.lang-sep { color: var(--xlight); font-size: 11px; }
+</style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
@@ -18,12 +44,17 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">Victoria <span>Dallas</span></a>
     <ul class="nav-links">
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#sobre-mi" data-es="Sobre mí" data-en="About me">Sobre mí</a></li>
+      <li><a href="#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
       <li><a href="#stack">Stack</a></li>
-      <li><a href="#academico">Académico</a></li>
-      <li><a href="#personales">Proyectos</a></li>
+      <li><a href="#academico" data-es="Académico" data-en="Academic">Académico</a></li>
+      <li><a href="#personales" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
     </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -33,9 +64,13 @@
     <div>
       <h1 class="hero-name">Portfolio<em>2026</em></h1>
       <p class="hero-desc">
-        👋 <strong>¡Hola!</strong><br><br>
-        Soy Vicky, <strong>analista de datos</strong> con formación en <strong>Comunicación Digital</strong>. Trabajo con datos en periodismo (<strong>recolección, limpieza, análisis y visualización</strong>) y busco llevar esas habilidades a contextos donde los datos <strong>impulsen decisiones de negocio</strong>.<br><br>
-        Este es mi recorrido, <i>todavía en construcción.</i>
+        👋 <strong data-es="¡Hola!" data-en="Hi there!">¡Hola!</strong><br><br>
+        <span data-es='Soy Vicky, <strong>analista de datos</strong> con formación en <strong>Comunicación Digital</strong>. Trabajo con datos en periodismo (<strong>recolección, limpieza, análisis y visualización</strong>) y busco llevar esas habilidades a contextos donde los datos <strong>impulsen decisiones de negocio</strong>.'
+              data-en="I'm Vicky, a <strong>data analyst</strong> with a background in <strong>Digital Communication</strong>. I work with data in journalism (<strong>collection, cleaning, analysis and visualization</strong>) and I'm looking to bring these skills to contexts where data <strong>drives business decisions</strong>.">
+          Soy Vicky, <strong>analista de datos</strong> con formación en <strong>Comunicación Digital</strong>. Trabajo con datos en periodismo (<strong>recolección, limpieza, análisis y visualización</strong>) y busco llevar esas habilidades a contextos donde los datos <strong>impulsen decisiones de negocio</strong>.
+        </span><br><br>
+        <i data-es="Este es mi recorrido, todavía en construcción." data-en="This is my journey, still under construction.">Este es mi recorrido, todavía en construcción.</i>
+      </p>
       <div class="hero-chips">
         <span class="chip"><span class="chip-dot"></span>Python · R</span>
         <span class="chip"><span class="chip-dot"></span>SQL · BigQuery</span>
@@ -44,10 +79,11 @@
       </div>
       <div class="scroll-cue">
         <div class="scroll-line"></div>
+        <span data-es="Scroll" data-en="Scroll">Scroll</span>
       </div>
     </div>
     <div class="hero-photo" style="background: transparent; border: none; width: 100%; flex-shrink: 0;">
-  <img src="vicky_avatar.png" alt="Victoria Dallas" style="width:100%; height:auto; object-fit:contain; display:block;">
+      <img src="vicky_avatar.png" alt="Victoria Dallas" style="width:100%; height:auto; object-fit:contain; display:block;">
     </div>
   </div>
 </div>
@@ -57,33 +93,35 @@
   <div class="section-inner">
     <div class="s-left reveal">
       <span class="s-num">01</span>
-      <span class="s-label">Sobre mi</span>
+      <span class="s-label" data-es="Sobre mí" data-en="About me">Sobre mí</span>
     </div>
     <div class="s-right reveal" style="transition-delay:.08s">
-      <h2 class="s-title">Un poco<em>sobre mi</em></h2>
+      <h2 class="s-title">
+        <span data-es="Un poco" data-en="A little">Un poco</span>
+        <em data-es="sobre mí" data-en="about me">sobre mí</em>
+      </h2>
       <p class="s-body">
-        Estudié la <strong>Licenciatura en Comunicación Digital</strong> en la Universidad Argentina de la Empresa, con <strong>Minor en Marketing y Publicidad</strong>. Aprendí a pensar en audiencias, construir mensajes y entender cómo fluye la información. En el camino descubrí que los datos son otra forma de hacer esa misma pregunta: <strong>¿qué está pasando realmente?</strong><br><br>
-
-Hoy trabajo como analista de datos en <strong>La Nación Data</strong>, uno de los equipos de periodismo de datos más reconocidos a nivel mundial. Recolecto, limpio y analizo bases de datos que, junto a un equipo de periodistas y diseñadores, se convierten en notas de impacto. Respondo a temas de agenda, lo que me exige estar constantemente atenta a lo que sucede, identificar qué datos son relevantes y actuar con rapidez. Me interesan los <strong>fenómenos sociales</strong>: me gusta investigarlos, medirlos y encontrar el patrón detrás de lo que puede llegar a parecer obvio. <br><br>
-
-Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en HumAI</strong> porque quiero ir más lejos técnicamente. El objetivo es dar un salto en mi carrera profesional y llevar todo esto a contextos donde las <strong>decisiones basadas en datos potencien los resultados de las organizaciones</strong>.
+        <span data-es='Estudié la <strong>Licenciatura en Comunicación Digital</strong> en la Universidad Argentina de la Empresa, con <strong>Minor en Marketing y Publicidad</strong>. Aprendí a pensar en audiencias, construir mensajes y entender cómo fluye la información. En el camino descubrí que los datos son otra forma de hacer esa misma pregunta: <strong>¿qué está pasando realmente?</strong><br><br>Hoy trabajo como analista de datos en <strong>La Nación Data</strong>, uno de los equipos de periodismo de datos más reconocidos a nivel mundial. Recolecto, limpio y analizo bases de datos que, junto a un equipo de periodistas y diseñadores, se convierten en notas de impacto. Respondo a temas de agenda, lo que me exige estar constantemente atenta a lo que sucede, identificar qué datos son relevantes y actuar con rapidez. Me interesan los <strong>fenómenos sociales</strong>: me gusta investigarlos, medirlos y encontrar el patrón detrás de lo que puede llegar a parecer obvio.<br><br>Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en HumAI</strong> porque quiero ir más lejos técnicamente. El objetivo es dar un salto en mi carrera profesional y llevar todo esto a contextos donde las <strong>decisiones basadas en datos potencien los resultados de las organizaciones</strong>.'
+              data-en='I studied a <strong>Bachelor&apos;s Degree in Digital Communication</strong> at Universidad Argentina de la Empresa, with a <strong>Minor in Marketing and Advertising</strong>. I learned to think in terms of audiences, build messages and understand how information flows. Along the way I discovered that data is just another way of asking the same question: <strong>what is really going on?</strong><br><br>Today I work as a data analyst at <strong>La Nación Data</strong>, one of the most recognized data journalism teams in the world. I collect, clean and analyze datasets that, together with a team of journalists and designers, become high-impact stories. I cover breaking news topics, which requires me to stay constantly aware of what is happening, identify which data matters and act quickly. I am drawn to <strong>social phenomena</strong>: I enjoy investigating them, measuring them and finding the pattern behind what might seem obvious.<br><br>I am currently complementing my training with the <strong>Data Science Program at HumAI</strong> because I want to go further technically. My goal is to take a professional leap and apply all of this to contexts where <strong>data-driven decisions enhance organizational results</strong>.'>
+          Estudié la <strong>Licenciatura en Comunicación Digital</strong> en la Universidad Argentina de la Empresa, con <strong>Minor en Marketing y Publicidad</strong>. Aprendí a pensar en audiencias, construir mensajes y entender cómo fluye la información. En el camino descubrí que los datos son otra forma de hacer esa misma pregunta: <strong>¿qué está pasando realmente?</strong><br><br>Hoy trabajo como analista de datos en <strong>La Nación Data</strong>, uno de los equipos de periodismo de datos más reconocidos a nivel mundial. Recolecto, limpio y analizo bases de datos que, junto a un equipo de periodistas y diseñadores, se convierten en notas de impacto. Respondo a temas de agenda, lo que me exige estar constantemente atenta a lo que sucede, identificar qué datos son relevantes y actuar con rapidez. Me interesan los <strong>fenómenos sociales</strong>: me gusta investigarlos, medirlos y encontrar el patrón detrás de lo que puede llegar a parecer obvio.<br><br>Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en HumAI</strong> porque quiero ir más lejos técnicamente. El objetivo es dar un salto en mi carrera profesional y llevar todo esto a contextos donde las <strong>decisiones basadas en datos potencien los resultados de las organizaciones</strong>.
+        </span>
       </p>
 
       <div class="arc">
         <div class="arc-step">
-          <p class="arc-num">Origen</p>
-          <p class="arc-label">Comunicación Digital</p>
-          <p class="arc-desc">Audiencias, narrativas, marketing digital y análisis de KPIs.</p>
+          <p class="arc-num" data-es="Origen" data-en="Origin">Origen</p>
+          <p class="arc-label" data-es="Comunicación Digital" data-en="Digital Communication">Comunicación Digital</p>
+          <p class="arc-desc" data-es="Audiencias, narrativas, marketing digital y análisis de KPIs." data-en="Audiences, narratives, digital marketing and KPI analysis.">Audiencias, narrativas, marketing digital y análisis de KPIs.</p>
         </div>
         <div class="arc-step active">
-          <p class="arc-num">Hoy</p>
-          <p class="arc-label">Analista de datos</p>
-          <p class="arc-desc">SQL, Python, BigQuery. Periodismo de datos en el diario La Nación.</p>
+          <p class="arc-num" data-es="Hoy" data-en="Now">Hoy</p>
+          <p class="arc-label" data-es="Analista de datos" data-en="Data Analyst">Analista de datos</p>
+          <p class="arc-desc" data-es="SQL, Python, BigQuery. Periodismo de datos en el diario La Nación." data-en="SQL, Python, BigQuery. Data journalism at La Nación.">SQL, Python, BigQuery. Periodismo de datos en el diario La Nación.</p>
         </div>
         <div class="arc-step">
-          <p class="arc-num">Hacia dónde</p>
-          <p class="arc-label">Ciencia de datos</p>
-          <p class="arc-desc">Machine Learning, BI, automatización. Cursando en HumAI.</p>
+          <p class="arc-num" data-es="Hacia dónde" data-en="Where I'm heading">Hacia dónde</p>
+          <p class="arc-label" data-es="Ciencia de datos" data-en="Data Science">Ciencia de datos</p>
+          <p class="arc-desc" data-es="Machine Learning, BI, automatización. Cursando en HumAI." data-en="Machine Learning, BI, automation. Currently studying at HumAI.">Machine Learning, BI, automatización. Cursando en HumAI.</p>
         </div>
       </div>
 
@@ -98,11 +136,11 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
             <a href="https://www.linkedin.com/in/mvictoriadallas" target="_blank" class="cval">mvictoriadallas</a>
           </li>
           <li>
-            <span class="clabel">La Nación</span>
-            <a href="https://www.lanacion.com.ar/autor/VictoriaDallas/" target="_blank" class="cval">Perfil de autora</a>
+            <span class="clabel" data-es="La Nación" data-en="La Nación">La Nación</span>
+            <a href="https://www.lanacion.com.ar/autor/VictoriaDallas/" target="_blank" class="cval" data-es="Perfil de autora" data-en="Author profile">Perfil de autora</a>
           </li>
           <li>
-            <span class="clabel">Ubicación</span>
+            <span class="clabel" data-es="Ubicación" data-en="Location">Ubicación</span>
             <span class="cval">Villa Crespo, Buenos Aires</span>
           </li>
         </ul>
@@ -116,33 +154,38 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
   <div class="section-inner">
     <div class="s-left reveal">
       <span class="s-num">02</span>
-      <span class="s-label">Experiencia</span>
+      <span class="s-label" data-es="Experiencia" data-en="Experience">Experiencia</span>
     </div>
     <div class="s-right reveal" style="transition-delay:.08s">
-      <h2 class="s-title">Experiencia<em>laboral</em></h2>
+      <h2 class="s-title">
+        <span data-es="Experiencia" data-en="Work">Experiencia</span>
+        <em data-es="laboral" data-en="experience">laboral</em>
+      </h2>
       <div class="exp-list">
         <div class="exp">
           <div>
             <div class="exp-top">
               <span class="exp-company">La Nación · LN Data</span>
               <span class="exp-sep">—</span>
-              <span class="exp-role">Analista de datos · Full time</span>
-              <span class="exp-period" style="margin-left:auto;">Jun 2024 — Presente</span>
+              <span class="exp-role" data-es="Analista de datos · Full time" data-en="Data Analyst · Full time">Analista de datos · Full time</span>
+              <span class="exp-period" style="margin-left:auto;" data-es="Jun 2024 — Presente" data-en="Jun 2024 — Present">Jun 2024 — Presente</span>
             </div>
             <ul class="exp-bullets">
-              <li>Recolección, limpieza y validación de datasets desde registros públicos y fuentes digitales.</li>
-              <li>Análisis descriptivo y exploratorio para detectar tendencias y hallazgos accionables en temas de agenda: política, economía, sociedad e internacional.</li>
-              <li>Diseño de visualizaciones y reportes para equipos de periodismo, diseño, desarrollo e IA.</li>
+              <li data-es="Recolección, limpieza y validación de datasets desde registros públicos y fuentes digitales." data-en="Collection, cleaning and validation of datasets from public records and digital sources.">Recolección, limpieza y validación de datasets desde registros públicos y fuentes digitales.</li>
+              <li data-es="Análisis descriptivo y exploratorio para detectar tendencias y hallazgos accionables en temas de agenda: política, economía, sociedad e internacional." data-en="Descriptive and exploratory analysis to detect trends and actionable findings across news topics: politics, economics, society and international affairs.">Análisis descriptivo y exploratorio para detectar tendencias y hallazgos accionables en temas de agenda: política, economía, sociedad e internacional.</li>
+              <li data-es="Diseño de visualizaciones y reportes para equipos de periodismo, diseño, desarrollo e IA." data-en="Design of visualizations and reports for journalism, design, development and AI teams.">Diseño de visualizaciones y reportes para equipos de periodismo, diseño, desarrollo e IA.</li>
             </ul>
             <div class="exp-tags">
               <span class="etag etag-m">SQL</span>
               <span class="etag etag-m">BigQuery</span>
               <span class="etag etag-m">Python</span>
-              <span class="etag etag-t">Análisis exploratorio</span>
-              <span class="etag etag-t">Visualización</span>
+              <span class="etag etag-t" data-es="Análisis exploratorio" data-en="Exploratory analysis">Análisis exploratorio</span>
+              <span class="etag etag-t" data-es="Visualización" data-en="Visualization">Visualización</span>
             </div>
 
-            <p style="font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--light); margin: 1.75rem 0 .75rem; padding-left: 1.25rem; border-left: 2px solid var(--citron);">Análisis publicados</p>
+            <p style="font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--light); margin: 1.75rem 0 .75rem; padding-left: 1.25rem; border-left: 2px solid var(--citron);"
+               data-es="Análisis publicados" data-en="Published analyses">Análisis publicados</p>
+
             <div class="proj-list" style="padding-left: 1.25rem; border-left: 2px solid var(--citron);">
 
               <!-- SUICIDIO -->
@@ -153,15 +196,15 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                 <div>
                   <div class="proj-top">
                     <span class="proj-date">Sep 2025</span>
-                    <span class="proj-cat">Fundación LA NACIÓN</span>
+                    <span class="proj-cat" data-es="Fundación LA NACIÓN" data-en="LA NACIÓN Foundation">Fundación LA NACIÓN</span>
                     <span style="display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(184,191,90,0.15);color:#6A7020;padding:2px 9px;border-radius:100px;">🏆 FOPEA 2025</span>
                   </div>
                   <h3 class="proj-name">'Mi hijo no aguantó tanto dolor'. La dramática espera de Nico por un turno que nunca llegó</h3>
-                  <p class="proj-desc">Investigación sobre suicidio adolescente y el colapso del sistema de salud mental en Argentina. Ganadora del premio FOPEA 2025 en la categoría Temas urgentes.</p>
-                  <p class="proj-what">Solicitud de acceso a la información pública · Limpieza y validación de datos · Cruce con Censo 2022 (INDEC) para construcción de tasas poblacionales · Análisis en Python.</p>
+                  <p class="proj-desc" data-es="Investigación sobre suicidio adolescente y el colapso del sistema de salud mental en Argentina. Ganadora del premio FOPEA 2025 en la categoría Temas urgentes." data-en="Investigation into teenage suicide and the collapse of Argentina's mental health system. Winner of the FOPEA 2025 award in the Urgent Issues category.">Investigación sobre suicidio adolescente y el colapso del sistema de salud mental en Argentina. Ganadora del premio FOPEA 2025 en la categoría Temas urgentes.</p>
+                  <p class="proj-what" data-es="Solicitud de acceso a la información pública · Limpieza y validación de datos · Cruce con Censo 2022 (INDEC) para construcción de tasas poblacionales · Análisis en Python." data-en="Public information access request · Data cleaning and validation · Cross-referenced with 2022 Census (INDEC) to build population rates · Analysis in Python.">Solicitud de acceso a la información pública · Limpieza y validación de datos · Cruce con Censo 2022 (INDEC) para construcción de tasas poblacionales · Análisis en Python.</p>
                   <div class="proj-impact">
                     <div class="impact-item">
-                      <p class="impact-label">Visitas únicas</p>
+                      <p class="impact-label" data-es="Visitas únicas" data-en="Unique visits">Visitas únicas</p>
                       <p class="impact-val">119.952</p>
                     </div>
                     <div class="impact-item">
@@ -169,19 +212,17 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                       <p class="impact-val">23.940</p>
                     </div>
                     <div class="impact-item">
-                      <p class="impact-label">Tiempo en home</p>
+                      <p class="impact-label" data-es="Tiempo en home" data-en="Time on homepage">Tiempo en home</p>
                       <p class="impact-val">21 hs</p>
                     </div>
                   </div>
                   <div class="proj-bottom">
                     <div class="proj-tags">
-                      <span class="ptag ptag-m">Acceso a la información</span>
-                      <span class="ptag ptag-m">Salud mental</span>
-                      <span class="ptag ptag-t">Análisis de datos</span>
+                      <span class="ptag ptag-m" data-es="Acceso a la información" data-en="Information access">Acceso a la información</span>
+                      <span class="ptag ptag-m" data-es="Salud mental" data-en="Mental health">Salud mental</span>
+                      <span class="ptag ptag-t" data-es="Análisis de datos" data-en="Data analysis">Análisis de datos</span>
                     </div>
-                    <a href="https://www.lanacion.com.ar/comunidad/suicidio-nico-se-quito-la-vida-a-los-18-anos-a-la-espera-de-un-turno-que-nunca-llego-nid10092025/" target="_blank" class="proj-link">
-                      Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                    </a>
+                    <a href="https://www.lanacion.com.ar/comunidad/suicidio-nico-se-quito-la-vida-a-los-18-anos-a-la-espera-de-un-turno-que-nunca-llego-nid10092025/" target="_blank" class="proj-link" data-es="Ver nota" data-en="Read article">Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
                   </div>
                 </div>
               </div>
@@ -194,14 +235,14 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                 <div>
                   <div class="proj-top">
                     <span class="proj-date">Mar 2026</span>
-                    <span class="proj-cat">Internacional</span>
+                    <span class="proj-cat" data-es="Internacional" data-en="International">Internacional</span>
                   </div>
-                  <h3 class="proj-name">La onda expansiva de la guerra en el mundo y el riesgo de una crisis global</h3>
-                  <p class="proj-desc">Análisis del impacto geopolítico y económico del conflicto en Medio Oriente sobre el resto del mundo.</p>
-                  <p class="proj-what">Evaluación y selección de proveedores de datos · Conexión a API vía Insomnia · Recolección y limpieza de datos en Python.</p>
+                  <h3 class="proj-name" data-es="La onda expansiva de la guerra en el mundo y el riesgo de una crisis global" data-en="The ripple effect of war and the risk of a global crisis">La onda expansiva de la guerra en el mundo y el riesgo de una crisis global</h3>
+                  <p class="proj-desc" data-es="Análisis del impacto geopolítico y económico del conflicto en Medio Oriente sobre el resto del mundo." data-en="Analysis of the geopolitical and economic impact of the Middle East conflict on the rest of the world.">Análisis del impacto geopolítico y económico del conflicto en Medio Oriente sobre el resto del mundo.</p>
+                  <p class="proj-what" data-es="Evaluación y selección de proveedores de datos · Conexión a API vía Insomnia · Recolección y limpieza de datos en Python." data-en="Evaluation and selection of data providers · API connection via Insomnia · Data collection and cleaning in Python.">Evaluación y selección de proveedores de datos · Conexión a API vía Insomnia · Recolección y limpieza de datos en Python.</p>
                   <div class="proj-impact">
                     <div class="impact-item">
-                      <p class="impact-label">Visitas únicas</p>
+                      <p class="impact-label" data-es="Visitas únicas" data-en="Unique visits">Visitas únicas</p>
                       <p class="impact-val">90.666</p>
                     </div>
                     <div class="impact-item">
@@ -209,19 +250,17 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                       <p class="impact-val">21.748</p>
                     </div>
                     <div class="impact-item">
-                      <p class="impact-label">Tiempo en home</p>
+                      <p class="impact-label" data-es="Tiempo en home" data-en="Time on homepage">Tiempo en home</p>
                       <p class="impact-val">18 hs</p>
                     </div>
                   </div>
                   <div class="proj-bottom">
                     <div class="proj-tags">
-                      <span class="ptag ptag-m">Geopolítica</span>
-                      <span class="ptag ptag-m">Infografía</span>
-                      <span class="ptag ptag-t">Análisis de datos</span>
+                      <span class="ptag ptag-m" data-es="Geopolítica" data-en="Geopolitics">Geopolítica</span>
+                      <span class="ptag ptag-m" data-es="Infografía" data-en="Infographic">Infografía</span>
+                      <span class="ptag ptag-t" data-es="Análisis de datos" data-en="Data analysis">Análisis de datos</span>
                     </div>
-                    <a href="https://www.lanacion.com.ar/el-mundo/conflicto-en-medio-oriente-la-onda-expansiva-de-la-guerra-en-el-mundo-y-el-riesgo-de-una-crisis-nid07032026/" target="_blank" class="proj-link">
-                      Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                    </a>
+                    <a href="https://www.lanacion.com.ar/el-mundo/conflicto-en-medio-oriente-la-onda-expansiva-de-la-guerra-en-el-mundo-y-el-riesgo-de-una-crisis-nid07032026/" target="_blank" class="proj-link" data-es="Ver nota" data-en="Read article">Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
                   </div>
                 </div>
               </div>
@@ -234,14 +273,14 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                 <div>
                   <div class="proj-top">
                     <span class="proj-date">May 2026</span>
-                    <span class="proj-cat">Sociedad</span>
+                    <span class="proj-cat" data-es="Sociedad" data-en="Society">Sociedad</span>
                   </div>
-                  <h3 class="proj-name">Los cinco barrios porteños con más reclamos por basura</h3>
-                  <p class="proj-desc">Análisis de los reclamos al 147 del GCBA para identificar zonas críticas de desborde de contenedores.</p>
-                  <p class="proj-what">Recolección desde datos abiertos del sistema 147 (+1,5M de registros) · Limpieza y procesamiento en BigQuery · Cruce con datos censales para georreferenciación por radio censal y barrio</p>
+                  <h3 class="proj-name" data-es="Los cinco barrios porteños con más reclamos por basura" data-en="The five Buenos Aires neighborhoods with the most garbage complaints">Los cinco barrios porteños con más reclamos por basura</h3>
+                  <p class="proj-desc" data-es="Análisis de los reclamos al 147 del GCBA para identificar zonas críticas de desborde de contenedores." data-en="Analysis of complaints to Buenos Aires City's 147 hotline to identify critical overflow zones.">Análisis de los reclamos al 147 del GCBA para identificar zonas críticas de desborde de contenedores.</p>
+                  <p class="proj-what" data-es="Recolección desde datos abiertos del sistema 147 (+1,5M de registros) · Limpieza y procesamiento en BigQuery · Cruce con datos censales para georreferenciación por radio censal y barrio" data-en="Collection from open data (147 system, +1.5M records) · Cleaning and processing in BigQuery · Cross-referenced with census data for geographic mapping by census tract and neighborhood.">Recolección desde datos abiertos del sistema 147 (+1,5M de registros) · Limpieza y procesamiento en BigQuery · Cruce con datos censales para georreferenciación por radio censal y barrio</p>
                   <div class="proj-impact">
                     <div class="impact-item">
-                      <p class="impact-label">Visitas únicas</p>
+                      <p class="impact-label" data-es="Visitas únicas" data-en="Unique visits">Visitas únicas</p>
                       <p class="impact-val">57.235</p>
                     </div>
                     <div class="impact-item">
@@ -249,21 +288,19 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                       <p class="impact-val">3.630</p>
                     </div>
                     <div class="impact-item">
-                      <p class="impact-label">Tiempo en home</p>
+                      <p class="impact-label" data-es="Tiempo en home" data-en="Time on homepage">Tiempo en home</p>
                       <p class="impact-val">15 hs</p>
                     </div>
                   </div>
                   <div class="proj-bottom">
                     <div class="proj-tags">
-                      <span class="ptag ptag-m">Datos abiertos</span>
-                      <span class="ptag ptag-m">Análisis geográfico</span>
+                      <span class="ptag ptag-m" data-es="Datos abiertos" data-en="Open data">Datos abiertos</span>
+                      <span class="ptag ptag-m" data-es="Análisis geográfico" data-en="Geographic analysis">Análisis geográfico</span>
                       <span class="ptag ptag-t">BigQuery</span>
                       <span class="ptag ptag-t">Python</span>
                       <span class="ptag ptag-t">Sheets</span>
                     </div>
-                    <a href="https://www.lanacion.com.ar/sociedad/contenedores-colapsados-el-desborde-de-basura-ya-es-parte-del-paisaje-en-los-cinco-barrios-portenos-nid03052026/" target="_blank" class="proj-link">
-                      Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                    </a>
+                    <a href="https://www.lanacion.com.ar/sociedad/contenedores-colapsados-el-desborde-de-basura-ya-es-parte-del-paisaje-en-los-cinco-barrios-portenos-nid03052026/" target="_blank" class="proj-link" data-es="Ver nota" data-en="Read article">Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
                   </div>
                 </div>
               </div>
@@ -276,14 +313,14 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                 <div>
                   <div class="proj-top">
                     <span class="proj-date">Jun 2025</span>
-                    <span class="proj-cat">Política</span>
+                    <span class="proj-cat" data-es="Política" data-en="Politics">Política</span>
                   </div>
-                  <h3 class="proj-name">2403 tuits de Milei: insultos, burlas y autoelogios</h3>
-                  <p class="proj-desc">Investigación sobre el lenguaje digital del presidente en X durante dos semanas, combinando clasificación automática con validación manual.</p>
-                  <p class="proj-what">Validación manual de +100 registros etiquetados por IA · Aplicación de criterio periodístico para garantizar consistencia del corpus.</p>
+                  <h3 class="proj-name" data-es="2403 tuits de Milei: insultos, burlas y autoelogios" data-en="2,403 tweets by Milei: insults, mockery and self-praise">2403 tuits de Milei: insultos, burlas y autoelogios</h3>
+                  <p class="proj-desc" data-es="Investigación sobre el lenguaje digital del presidente en X durante dos semanas, combinando clasificación automática con validación manual." data-en="Investigation into the president's digital language on X over two weeks, combining automatic classification with manual validation.">Investigación sobre el lenguaje digital del presidente en X durante dos semanas, combinando clasificación automática con validación manual.</p>
+                  <p class="proj-what" data-es="Validación manual de +100 registros etiquetados por IA · Aplicación de criterio periodístico para garantizar consistencia del corpus." data-en="Manual validation of 100+ AI-labeled records · Application of journalistic criteria to ensure corpus consistency.">Validación manual de +100 registros etiquetados por IA · Aplicación de criterio periodístico para garantizar consistencia del corpus.</p>
                   <div class="proj-impact">
                     <div class="impact-item">
-                      <p class="impact-label">Visitas únicas</p>
+                      <p class="impact-label" data-es="Visitas únicas" data-en="Unique visits">Visitas únicas</p>
                       <p class="impact-val">4.657</p>
                     </div>
                     <div class="impact-item">
@@ -291,26 +328,22 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
                       <p class="impact-val">116</p>
                     </div>
                     <div class="impact-item">
-                      <p class="impact-label">Tiempo en home</p>
+                      <p class="impact-label" data-es="Tiempo en home" data-en="Time on homepage">Tiempo en home</p>
                       <p class="impact-val">1 h</p>
                     </div>
                   </div>
                   <div class="proj-bottom">
                     <div class="proj-tags">
-                      <span class="ptag ptag-m">Análisis de texto</span>
-                      <span class="ptag ptag-m">Control de calidad IA</span>
+                      <span class="ptag ptag-m" data-es="Análisis de texto" data-en="Text analysis">Análisis de texto</span>
+                      <span class="ptag ptag-m" data-es="Control de calidad IA" data-en="AI quality control">Control de calidad IA</span>
                     </div>
-                    <a href="https://www.lanacion.com.ar/politica/guerra-de-las-palabras-dos-semanas-en-la-burbuja-digital-de-milei-2403-tuits-insultos-burlas-y-nid07062025/" target="_blank" class="proj-link">
-                      Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                    </a>
+                    <a href="https://www.lanacion.com.ar/politica/guerra-de-las-palabras-dos-semanas-en-la-burbuja-digital-de-milei-2403-tuits-insultos-burlas-y-nid07062025/" target="_blank" class="proj-link" data-es="Ver nota" data-en="Read article">Ver nota <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
                   </div>
                 </div>
               </div>
 
-
             </div>
           </div>
-          <!-- fin ln data -->
         </div>
       </div>
 
@@ -320,19 +353,19 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
             <div class="exp-top">
               <span class="exp-company">MKT4E</span>
               <span class="exp-sep">—</span>
-              <span class="exp-role">Analista de redes sociales · Part time</span>
-              <span class="exp-period" style="margin-left:auto;">Nov 2022 — Jun 2024</span>
+              <span class="exp-role" data-es="Analista de redes sociales · Part time" data-en="Social Media Analyst · Part time">Analista de redes sociales · Part time</span>
+              <span class="exp-period" style="margin-left:auto;" data-es="Nov 2022 — Jun 2024" data-en="Nov 2022 — Jun 2024">Nov 2022 — Jun 2024</span>
             </div>
             <ul class="exp-bullets">
-              <li>Análisis de KPIs de campañas digitales: alcance, interacción y rendimiento con Metricool y Excel.</li>
-              <li>Monitoreo de comportamiento de audiencias para identificar tendencias y oportunidades de contenido.</li>
-              <li>Elaboración de reportes de desempeño y recomendaciones estratégicas para el equipo.</li>
+              <li data-es="Análisis de KPIs de campañas digitales: alcance, interacción y rendimiento con Metricool y Excel." data-en="Analysis of digital campaign KPIs: reach, engagement and performance using Metricool and Excel.">Análisis de KPIs de campañas digitales: alcance, interacción y rendimiento con Metricool y Excel.</li>
+              <li data-es="Monitoreo de comportamiento de audiencias para identificar tendencias y oportunidades de contenido." data-en="Audience behavior monitoring to identify trends and content opportunities.">Monitoreo de comportamiento de audiencias para identificar tendencias y oportunidades de contenido.</li>
+              <li data-es="Elaboración de reportes de desempeño y recomendaciones estratégicas para el equipo." data-en="Preparation of performance reports and strategic recommendations for the team.">Elaboración de reportes de desempeño y recomendaciones estratégicas para el equipo.</li>
             </ul>
             <div class="exp-tags">
               <span class="etag etag-m">Excel</span>
               <span class="etag etag-m">Metricool</span>
               <span class="etag etag-t">KPIs</span>
-              <span class="etag etag-t">Reportes</span>
+              <span class="etag etag-t" data-es="Reportes" data-en="Reports">Reportes</span>
               <span class="etag etag-t">Google Ads</span>
             </div>
           </div>
@@ -350,10 +383,13 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
       <span class="s-label">Stack</span>
     </div>
     <div class="s-right reveal" style="transition-delay:.08s">
-      <h2 class="s-title">Herramientas<em>y competencias.</em></h2>
+      <h2 class="s-title">
+        <span data-es="Herramientas" data-en="Tools">Herramientas</span>
+        <em data-es="y competencias." data-en="and skills.">y competencias.</em>
+      </h2>
       <div class="stack-grid">
         <div class="stack-group">
-          <p class="stack-group-label">Datos y análisis</p>
+          <p class="stack-group-label" data-es="Datos y análisis" data-en="Data & analysis">Datos y análisis</p>
           <div class="stack-items">
             <span class="stack-tag strong">SQL</span>
             <span class="stack-tag strong">BigQuery</span>
@@ -364,14 +400,14 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
           </div>
         </div>
         <div class="stack-group">
-          <p class="stack-group-label">Visualización de datos</p>
+          <p class="stack-group-label" data-es="Visualización de datos" data-en="Data visualization">Visualización de datos</p>
           <div class="stack-items">
             <span class="stack-tag strong">Tableau</span>
             <span class="stack-tag strong">PowerPoint</span>
           </div>
         </div>
         <div class="stack-group">
-          <p class="stack-group-label">Marketing digital</p>
+          <p class="stack-group-label" data-es="Marketing digital" data-en="Digital marketing">Marketing digital</p>
           <div class="stack-items">
             <span class="stack-tag strong">Google Analytics 4</span>
             <span class="stack-tag strong">Google Tag Manager</span>
@@ -382,7 +418,7 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
           </div>
         </div>
         <div class="stack-group">
-          <p class="stack-group-label">Diseño y herramientas</p>
+          <p class="stack-group-label" data-es="Diseño y herramientas" data-en="Design & tools">Diseño y herramientas</p>
           <div class="stack-items">
             <span class="stack-tag strong">Figma</span>
             <span class="stack-tag strong">Canva</span>
@@ -391,20 +427,12 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
           </div>
         </div>
       </div>
-      <p style="font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--light); margin-bottom:.75rem; margin-top:2rem;">Cursos y certificaciones</p>
+      <p style="font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--light); margin-bottom:.75rem; margin-top:2rem;"
+         data-es="Cursos y certificaciones" data-en="Courses & certifications">Cursos y certificaciones</p>
       <div class="certs">
-        <span class="cert">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          IBM · AI Fundamentals
-        </span>
-        <span class="cert">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Google Ads · Search & Display
-        </span>
-        <span class="cert">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Cambridge FCE · B (176/190)
-        </span>
+        <span class="cert"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>IBM · AI Fundamentals</span>
+        <span class="cert"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Google Ads · Search & Display</span>
+        <span class="cert"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cambridge FCE · B (176/190)</span>
       </div>
     </div>
   </div>
@@ -415,98 +443,94 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
   <div class="section-inner">
     <div class="s-left reveal">
       <span class="s-num">04</span>
-      <span class="s-label">Académico</span>
+      <span class="s-label" data-es="Académico" data-en="Academic">Académico</span>
     </div>
     <div class="s-right reveal" style="transition-delay:.08s">
-      <h2 class="s-title">Proyectos<em>académicos relevantes</em></h2>
+      <h2 class="s-title">
+        <span data-es="Proyectos" data-en="Academic">Proyectos</span>
+        <em data-es="académicos relevantes" data-en="projects">académicos relevantes</em>
+      </h2>
 
       <div class="tif-card">
         <div class="tif-badge">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Nominado · Mejor TIF del año · UADE
+          <span data-es="Nominado · Mejor TIF del año · UADE" data-en="Nominated · Best Final Project of the Year · UADE">Nominado · Mejor TIF del año · UADE</span>
         </div>
-        <h3 class="tif-name">Narrativas en <em>guerra.</em></h3>
-        <p class="tif-sub">Trabajo Integrador Final · Licenciatura en Comunicación Digital e Interactiva · UADE</p>
-        <p class="tif-desc">
-          Analizamos <strong>958 tuits de Volodímir Zelenski</strong> entre agosto 2021 y agosto 2022 para entender cómo un jefe de Estado construye la figura del enemigo en una plataforma digital y adapta ese discurso según la audiencia. El trabajo combinó una <strong>metodología mixta:</strong> análisis cuantitativo del corpus y análisis cualitativo del discurso.
-        </p>
+        <h3 class="tif-name" data-es='Narrativas en <em>guerra.</em>' data-en='Narratives at <em>war.</em>'>Narrativas en <em>guerra.</em></h3>
+        <p class="tif-sub" data-es="Trabajo Integrador Final · Licenciatura en Comunicación Digital e Interactiva · UADE" data-en="Final Integrative Project · Bachelor's in Digital and Interactive Communication · UADE">Trabajo Integrador Final · Licenciatura en Comunicación Digital e Interactiva · UADE</p>
+        <p class="tif-desc" data-es='Analizamos <strong>958 tuits de Volodímir Zelenski</strong> entre agosto 2021 y agosto 2022 para entender cómo un jefe de Estado construye la figura del enemigo en una plataforma digital y adapta ese discurso según la audiencia. El trabajo combinó una <strong>metodología mixta:</strong> análisis cuantitativo del corpus y análisis cualitativo del discurso.' data-en='We analyzed <strong>958 tweets by Volodymyr Zelensky</strong> between August 2021 and August 2022 to understand how a head of state constructs the figure of the enemy on a digital platform and adapts that discourse to different audiences. The project used a <strong>mixed methodology:</strong> quantitative corpus analysis and qualitative discourse analysis.'>Analizamos <strong>958 tuits de Volodímir Zelenski</strong> entre agosto 2021 y agosto 2022 para entender cómo un jefe de Estado construye la figura del enemigo en una plataforma digital y adapta ese discurso según la audiencia. El trabajo combinó una <strong>metodología mixta:</strong> análisis cuantitativo del corpus y análisis cualitativo del discurso.</p>
         <div class="tif-stats">
           <div class="stat">
-            <p class="stat-label">Audiencia int.</p>
+            <p class="stat-label" data-es="Audiencia int." data-en="Int. audience">Audiencia int.</p>
             <p class="stat-val">95%</p>
-            <p class="stat-desc">mensajes orientados al exterior.</p>
+            <p class="stat-desc" data-es="mensajes orientados al exterior." data-en="messages directed at international audiences.">mensajes orientados al exterior.</p>
           </div>
           <div class="stat">
-            <p class="stat-label">Efecto invasión</p>
+            <p class="stat-label" data-es="Efecto invasión" data-en="Invasion effect">Efecto invasión</p>
             <p class="stat-val">×4</p>
-            <p class="stat-desc">frecuencia tras el 24 de feb.</p>
+            <p class="stat-desc" data-es="frecuencia tras el 24 de feb." data-en="posting frequency after Feb 24.">frecuencia tras el 24 de feb.</p>
           </div>
           <div class="stat">
-            <p class="stat-label">Bilingüismo</p>
+            <p class="stat-label" data-es="Bilingüismo" data-en="Bilingualism">Bilingüismo</p>
             <p class="stat-val">88%</p>
-            <p class="stat-desc">mensajes ucraniano + inglés.</p>
+            <p class="stat-desc" data-es="mensajes ucraniano + inglés." data-en="messages in Ukrainian + English.">mensajes ucraniano + inglés.</p>
           </div>
           <div class="stat">
-            <p class="stat-label">Corpus total</p>
+            <p class="stat-label" data-es="Corpus total" data-en="Total corpus">Corpus total</p>
             <p class="stat-val">958</p>
-            <p class="stat-desc">tuits analizados en 12 meses.</p>
+            <p class="stat-desc" data-es="tuits analizados en 12 meses." data-en="tweets analyzed over 12 months.">tuits analizados en 12 meses.</p>
           </div>
         </div>
         <div class="tif-tags-row">
-          <span class="tif-tag">Análisis de texto</span>
-          <span class="tif-tag">Corpus lingüístico</span>
-          <span class="tif-tag">Metodología mixta</span>
+          <span class="tif-tag" data-es="Análisis de texto" data-en="Text analysis">Análisis de texto</span>
+          <span class="tif-tag" data-es="Corpus lingüístico" data-en="Linguistic corpus">Corpus lingüístico</span>
+          <span class="tif-tag" data-es="Metodología mixta" data-en="Mixed methodology">Metodología mixta</span>
           <span class="tif-tag">Python</span>
           <span class="tif-tag">Scraping</span>
         </div>
-        <a href="https://www.canva.com/design/DAG31iznkqI/LjS2X_dRJYC-PJKru71jJQ/view?utm_content=DAG31iznkqI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1d4942f4e8" target="_blank" class="tif-link">
-          Ver presentación
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </a>
+        <a href="https://www.canva.com/design/DAG31iznkqI/LjS2X_dRJYC-PJKru71jJQ/view?utm_content=DAG31iznkqI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1d4942f4e8" target="_blank" class="tif-link" data-es="Ver presentación" data-en="View presentation">Ver presentación <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
       </div>
 
       <!-- PUPILO -->
       <div style="border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 1.25rem;">
-        <!-- Header -->
         <div style="background: var(--citron); padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap:wrap;">
           <div>
-            <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(17,17,16,0.5);margin-bottom:.4rem;">Proyecto académico · Análisis y desarrollo de audiencias</p>
+            <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(17,17,16,0.5);margin-bottom:.4rem;" data-es="Proyecto académico · Análisis y desarrollo de audiencias" data-en="Academic project · Audience analysis and development">Proyecto académico · Análisis y desarrollo de audiencias</p>
             <h4 style="font-size:22px;font-weight:900;letter-spacing:-.02em;color:var(--black);line-height:1;">PUPILO.</h4>
             <p style="font-size:13px;font-style:italic;font-weight:300;color:rgba(17,17,16,0.6);margin-top:.2rem;">Doñas Chismecito</p>
           </div>
-          <a href="https://canva.link/g4k3pxq7ywzxo2g" target="_blank" style="display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--black);text-decoration:none;border:1.5px solid rgba(17,17,16,0.25);border-radius:100px;padding:7px 16px;transition:background .2s;" onmouseover="this.style.background='rgba(17,17,16,0.08)'" onmouseout="this.style.background='transparent'">
-            Ver proyecto
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
+          <a href="https://canva.link/g4k3pxq7ywzxo2g" target="_blank" style="display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--black);text-decoration:none;border:1.5px solid rgba(17,17,16,0.25);border-radius:100px;padding:7px 16px;transition:background .2s;" onmouseover="this.style.background='rgba(17,17,16,0.08)'" onmouseout="this.style.background='transparent'"
+             data-es="Ver proyecto" data-en="View project">Ver proyecto <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
-        <!-- Body -->
         <div style="padding: 1.75rem 2rem; background: white;">
-          <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">
+          <p style="font-size:14px;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;"
+             data-es='Se creó una <strong>estrategia de marketing digital integral</strong> para una marca de indumentaria argentina de nicho, con foco en crecimiento de comunidad y conversión.'
+             data-en='We developed a <strong>comprehensive digital marketing strategy</strong> for a niche Argentine clothing brand, focused on community growth and conversion.'>
             Se creó una <strong>estrategia de marketing digital integral</strong> para una marca de indumentaria argentina de nicho, con foco en crecimiento de comunidad y conversión.
           </p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.5rem;">
             <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;">Diagnóstico</p>
-              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;">FODA · Social listening con Google Trends · Análisis de competencia directa e indirecta</p>
+              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;" data-es="Diagnóstico" data-en="Diagnosis">Diagnóstico</p>
+              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;" data-es="FODA · Social listening con Google Trends · Análisis de competencia directa e indirecta" data-en="SWOT · Social listening with Google Trends · Direct and indirect competitor analysis">FODA · Social listening con Google Trends · Análisis de competencia directa e indirecta</p>
             </div>
             <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;">Audiencia</p>
-              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;">Buyer persona · Mapa de empatía · Segmentación por comportamiento y valores</p>
+              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;" data-es="Audiencia" data-en="Audience">Audiencia</p>
+              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;" data-es="Buyer persona · Mapa de empatía · Segmentación por comportamiento y valores" data-en="Buyer persona · Empathy map · Segmentation by behavior and values">Buyer persona · Mapa de empatía · Segmentación por comportamiento y valores</p>
             </div>
             <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;">Estrategia de medios</p>
-              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;">SEO técnico, on-page, off-page y local · SEM · Meta Ads con remarketing · Google Display y Search</p>
+              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;" data-es="Estrategia de medios" data-en="Media strategy">Estrategia de medios</p>
+              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;" data-es="SEO técnico, on-page, off-page y local · SEM · Meta Ads con remarketing · Google Display y Search" data-en="Technical, on-page, off-page and local SEO · SEM · Meta Ads with remarketing · Google Display and Search">SEO técnico, on-page, off-page y local · SEM · Meta Ads con remarketing · Google Display y Search</p>
             </div>
             <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;">Fidelización</p>
-              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;">Email marketing con Mailchimp · Club Doñas · Objetivos SMART con KPIs por canal</p>
+              <p style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--burdo);margin-bottom:.5rem;" data-es="Fidelización" data-en="Loyalty">Fidelización</p>
+              <p style="font-size:12px;font-weight:300;color:var(--mid);line-height:1.55;" data-es="Email marketing con Mailchimp · Club Doñas · Objetivos SMART con KPIs por canal" data-en="Email marketing with Mailchimp · Club Doñas · SMART objectives with KPIs by channel">Email marketing con Mailchimp · Club Doñas · Objetivos SMART con KPIs por canal</p>
             </div>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span class="ptag ptag-m">Social listening</span>
+            <span class="ptag ptag-m" data-es="Social listening" data-en="Social listening">Social listening</span>
             <span class="ptag ptag-m">Google Trends</span>
             <span class="ptag ptag-m">SEO · SEM</span>
-            <span class="ptag ptag-m">Buyer persona</span>
+            <span class="ptag ptag-m" data-es="Buyer persona" data-en="Buyer persona">Buyer persona</span>
             <span class="ptag ptag-t">Meta Ads</span>
             <span class="ptag ptag-t">Google Ads</span>
             <span class="ptag ptag-t">Mailchimp</span>
@@ -522,17 +546,21 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
   <div class="section-inner">
     <div class="s-left reveal">
       <span class="s-num">05</span>
-      <span class="s-label">Proyectos personales</span>
+      <span class="s-label" data-es="Proyectos personales" data-en="Personal projects">Proyectos personales</span>
     </div>
     <div class="s-right reveal" style="transition-delay:.08s">
-      <h2 class="s-title">En<em>construcción</em></h2>
+      <h2 class="s-title">
+        <span data-es="En" data-en="Under">En</span>
+        <em data-es="construcción" data-en="construction">construcción</em>
+      </h2>
       <div class="personal-card">
-        <p class="personal-text">
+        <p class="personal-text" data-es='Si hay algo que me define, es la curiosidad. Estoy empezando a explorar proyectos propios. Me interesa entender cómo se comportan los clientes, qué patrones hay en los datos de consumo y cómo el análisis puede mejorar decisiones de marketing.<strong> Pronto voy a tener algo para mostrar acá.</strong>'
+           data-en='If there is one thing that defines me, it is curiosity. I am starting to explore personal projects. I want to understand how customers behave, what patterns exist in consumption data and how analysis can improve marketing decisions.<strong> Something will be here soon.</strong>'>
           Si hay algo que me define, es la curiosidad. Estoy empezando a explorar proyectos propios. Me interesa entender cómo se comportan los clientes, qué patrones hay en los datos de consumo y cómo el análisis puede mejorar decisiones de marketing.<strong> Pronto voy a tener algo para mostrar acá.</strong>
         </p>
         <div class="status-pill">
           <div class="dot"></div>
-          En curso
+          <span data-es="En curso" data-en="In progress">En curso</span>
         </div>
       </div>
     </div>
@@ -609,6 +637,32 @@ Estoy complementando mi formación con la <strong>Carrera de Ciencia de Datos en
     });
   }, { threshold: 0.4 });
   navSections.forEach(s => navObs.observe(s));
+
+  // LANGUAGE SWITCHER
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-es][data-en]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (!val) return;
+      // Si tiene HTML interno (strong, em, etc.)
+      if (val.includes('<')) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+
+    // Título del tab
+    document.title = lang === 'es'
+      ? 'Victoria Dallas — Analista de datos'
+      : 'Victoria Dallas — Data Analyst';
+  }
 </script>
 </body>
 </html>
